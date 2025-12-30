@@ -86,29 +86,194 @@ net stop mysql80
 net start mysql80
 ~~~
 
+### New installation: MySQL 8.4 (Windows)
+
+If MySQL is not installed on your machine yet, follow these steps to install MySQL 8.4.
+
+- Download MySQL Community Server (Windows) from the following page.
+	- Note: MySQL Installer is available only for the MySQL 8.0 series. For MySQL 8.1 and later (including 8.4), download MySQL Server as an MSI or ZIP package.
+	- [MySQL Community Server Downloads](https://downloads.mysql.com/archives/community/)
+	- In Select Version, choose 8.4.X, then choose Windows (x86, 64-bit).
+	![Select MySQL 8.4 version](img/xampp/mysql18.png)
+
+- Download one of the following packages:
+	- MSI Installer (recommended) - easy installation with a wizard.
+	- ZIP Archive (advanced) - manual installation.
+	![Select download package](img/xampp/mysql19.png)
+
+- Run the MSI file and follow the wizard.
+	- On the Welcome screen, click Next to start.
+	![Welcome](img/xampp/mysql30.png)
+	- Accept the License Agreement and click Next.
+	![License Agreement](img/xampp/mysql20.png)
+	- For setup type, select **Complete** to install all features.
+	![Choosing a Setup Type](img/xampp/mysql21.png)
+	- Click Install to start installing.
+	![Ready to Install](img/xampp/mysql22.png)
+	- Wait for installation to complete, then click Finish.
+	![Installation Progress](img/xampp/mysql23.png)
+	- After the MSI installation finishes, the configuration tool (MySQL Configurator) starts automatically.
+	- On **Welcome to the MySQL Server Configurator**, click **Next**.
+    ![Welcome Configurator](img/xampp/mysql31.png)
+
+	- **Data Directory:**
+    - Keep the default path where MySQL stores data (typically `C:\ProgramData\MySQL\MySQL Server 8.4\`).
+    - Click **Next**.
+    ![Data Directory](img/xampp/mysql32.png)
+
+	- **Type and Networking:**
+    - **Config Type**: Select `Development Computer`.
+    - **Connectivity**: Check `TCP/IP`. The default port is `3306` (if another MySQL instance already uses it, change to 3307 or 3308).
+    - Check **Open Windows Firewall ports for network access** if you need external connections.
+    - Click **Next**.
+    ![Type and Networking](img/xampp/mysql33.png)
+
+	- **Accounts and Roles:**
+    - Enter the `root` password in **MySQL Root Password** and **Repeat Password**.
+    - Note: Remember this password; it is the highest-privilege administrator credential.
+    - Click **Next**.
+    ![Accounts and Roles](img/xampp/mysql34.png)
+
+	- **Windows Service:**
+    - **Windows Service Name**: Set a service name, for example `MySQL84`, to distinguish it.
+    - Check **Start the MySQL Server at System Startup** to start MySQL automatically on boot.
+    - Select **Standard System Account** (recommended).
+    - Click **Next**.
+    ![Windows Service](img/xampp/mysql35.png)
+
+	- **Server File Permissions:**
+    - Select **Yes, grant full access...** to grant the MySQL service full access to the data directory.
+    - Click **Next**.
+    ![Server File Permissions](img/xampp/mysql36.png)
+
+	- **Sample Databases:**
+    - You can skip this step (do not select anything) to keep MySQL clean.
+    - Click **Next**.
+    ![Sample Databases](img/xampp/mysql37.png)
+
+	- **Apply Configuration:**
+    - Click **Execute** to start configuration.
+    ![Apply Configuration](img/xampp/mysql38.png)
+    - Wait until all steps show green checks, then click **Next** and **Finish**.
+
+- Edit the configuration file `my.ini`.
+	- Path: `C:\ProgramData\MySQL\MySQL Server 8.4\my.ini`
+	- Add the following line to the end of the file:
+
+~~~
+local-infile=1
+~~~
+
+- Restart MySQL to apply the configuration.
+
+~~~
+net stop mysql84
+net start mysql84
+~~~
+
+- Verify the version.
+
+~~~
+mysql --version
+~~~
+
+- (Optional) Verify inside MySQL:
+
+~~~
+mysql -u root -p -e "SELECT VERSION();"
+~~~
+
+### Upgrade to MySQL 8.4 (Windows)
+
+- Recommendation: Back up your data before upgrading.
+	- If you have important databases, create a dump/backup (for example with `mysqldump`) and make sure you know the existing `root` password.
+
+- Download MySQL Community Server (Windows) from the following page.
+	- Note: MySQL Installer is available only for the MySQL 8.0 series. For MySQL 8.1 and later (including 8.4), download MySQL Server as an MSI or ZIP package.
+	- [MySQL Community Server Downloads](https://downloads.mysql.com/archives/community/)
+	- In Select Version, choose 8.4.X, then choose Windows (x86, 64-bit).
+	- Use the dropdown lists (Select Version / Select Operating System) to filter to the correct MySQL 8.4 build for Windows.
+	![MySQL installation screen](img/xampp/mysql18.png)
+
+- Download one of the following packages:
+	- MSI Installer (recommended)
+	- ZIP Archive (advanced)
+	- On this page you will see downloadable files (for example `mysql-8.4.x-winx64.msi` or `mysql-8.4.x-winx64.zip`). Choose the package that fits your needs.
+	![MySQL installation screen](img/xampp/mysql19.png)
+
+- Run the MSI file and follow the wizard.
+	- On the Welcome screen, click Next to start.
+	![Welcome](img/xampp/mysql30.png)
+	- Accept the License Agreement and click Next.
+	![License Agreement](img/xampp/mysql20.png)
+	- For setup type, select **Complete** to install all features.
+	![Choosing a Setup Type](img/xampp/mysql21.png)
+	- Click Install to start installing.
+	![Ready to Install](img/xampp/mysql22.png)
+	- Wait for installation to complete, then click Finish.
+	![Installation Progress](img/xampp/mysql23.png)
+	- Launch the installer. It will automatically detect the existing version and move to **MySQL Server Installations**.
+	- Select **Perform an in-place upgrade of the existing MySQL Server installation**.
+    - Under **Connect to the existing MySQL Server installation**:
+        - **Port**: Check the port used by the existing MySQL instance (the screenshot shows `3308`, but the usual default is `3306`). Enter the port that your machine is using.
+        - **Root password**: Enter the `root` password of the existing MySQL version.
+        - Click **Connect**. When you see a green check, the connection is successful.
+    - Review the existing version information (step 2), then click **Next**.
+	![Type and Networking](img/xampp/mysql24.png)
+	- On **Backup Data**:
+    - The installer asks whether you want to back up data before upgrading.
+    - Select **Run a mysqldump backup prior to upgrade** for safety (or select "No thanks..." if you already backed up manually).
+    - Click **Next**.
+    ![Backup Data](img/xampp/mysql25.png)
+	- On **Server File Permissions**:
+    - Keep the default option: **Yes, grant full access to the user running the Windows Service...**
+    - Click **Next**.
+    ![Server File Permissions](img/xampp/mysql26.png)
+	- Click Execute to apply the configuration.
+	![Apply Configuration](img/xampp/mysql27.png)
+	- When complete, click Next and then Finish to close the wizard.
+	![Complete](img/xampp/mysql29.png)
+
+
+- After upgrading, re-check the `my.ini` configuration file.
+	- The path typically depends on the version, for example:
+		- `C:\ProgramData\MySQL\MySQL Server 8.4\my.ini`
+	- If you configured `local-infile=1` in the old version, make sure it is still present after the upgrade.
+
+- Verify the version.
+
+~~~
+mysql --version
+~~~
+
+- (Optional) Verify inside MySQL:
+
+~~~
+mysql -u root -p -e "SELECT VERSION();"
+~~~
+
 ### Add environment variables
 
 - From Explorer, right-click This PC and click Properties.
-![MySQL environment variables](img/xampp/mysql_command1.png)
+![MySQL environment variables](img/xampp/mysql_command6.png)
 
 - Click Advanced system settings.
-![MySQL environment variables](img/xampp/mysql_command2.png)
+![MySQL environment variables](img/xampp/mysql_command7.png)
 
-- Click on Environment Variables.   
-![MySQL environment variables](img/xampp/mysql_command3.png)
+- Click on Environment Variables.
+![MySQL environment variables](img/xampp/mysql_command8.png)
 
-- Click Path under User Environment Variables and click Edit.   
-![MySQL environment variables](img/xampp/mysql_command4.png)
+- Click Path under User Environment Variables and click Edit.
+![MySQL environment variables](img/xampp/mysql_command9.png)
 
+- If the C:\Program Files\MySQL\MySQL Server 8.0\bin variable exists, remove it.
+![MySQL environment variables](img/xampp/mysql_command_env3.png)
 
-- If the C:\Program Files\MySQL\MySQL Server 5.7\bin variable exists, remove it.
-![MySQL environment variables](img/xampp/mysql_command_env1.png)
+- Click New and add the following line.
+C:\Program Files\MySQL\MySQL Server 8.4\bin
+![MySQL environment variables](img/xampp/mysql_command_env4.png)
 
-- Click New and add the following line.   
-C:\Program Files\MySQL\MySQL Server 8.2\bin   
-![MySQL environment variables](img/xampp/mysql_command_env2.png)
-
-- Once you have made your entries, click OK on any dialogs that launch to complete them.   
+- Once you have made your entries, click OK on any dialogs that launch to complete them. 
 
 
 ## MySQL settings (Linux)
