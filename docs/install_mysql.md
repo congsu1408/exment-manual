@@ -2,6 +2,7 @@
 These are the steps for using MySQL with Exment.  
 ※Various steps may differ depending on the OS, version, installation time, etc.
 
+
 ## MySQL settings (Windows)
 
 ### Upgrade to MySQL 8.4 (Windows)
@@ -11,11 +12,12 @@ This section is for users who already have MySQL (for example 5.7 / 8.0) and wan
 - Recommendation: Back up your databases before upgrading.
 	- Example: [Database backup](https://dev.mysql.com/doc/refman/8.0/en/mysqldump-sql-format.html)
 
-- (If MySQL 5.7 is running) open Command Prompt as Administrator and stop the service.
+- (If MySQL is running) open Command Prompt as Administrator and stop the service.
 ![MySQL installation screen](img/xampp/mysql_cmd1.png)
 
 ~~~
 net stop mysql57
+net stop mysql80
 ~~~
 
 - Download MySQL Community Server (Windows) from the following page.
@@ -46,76 +48,6 @@ net stop mysql57
 
 		![Installation Progress](img/xampp/mysql23.png)
 
-- Launch the installer. It will automatically detect the existing version and move to **MySQL Server Installations**.
-	- Select **Perform an in-place upgrade of the existing MySQL Server installation**.
-	- Under **Connect to the existing MySQL Server installation**:
-		- **Port**: Enter the port used by the existing MySQL instance (usually `3306`).
-		- **Root password**: Enter the `root` password of the existing MySQL version.
-		- Click **Connect**.
-	- Review the existing version information, then click **Next**.
-
-		![Type and Networking](img/xampp/mysql24.png)
-	- On **Backup Data**, select **Run a mysqldump backup prior to upgrade** (recommended), then click **Next**.
-
-		![Backup Data](img/xampp/mysql25.png)
-	- On **Server File Permissions**, keep the default option and click **Next**.
-
-		![Server File Permissions](img/xampp/mysql26.png)
-	- Click **Execute** to apply the configuration.
-
-		![Apply Configuration](img/xampp/mysql27.png)
-	- When complete, click **Next** and **Finish**.
-
-		![Complete](img/xampp/mysql29.png)
-
-- Edit `my.ini` (MySQL 8.4) and enable local infile.
-	- Path: `C:\ProgramData\MySQL\MySQL Server 8.4\my.ini`
-	- Add the following under `[mysqld]` (or to the end of the file):
-
-~~~
-local-infile=1
-~~~
-
-- Restart MySQL (service name depends on your setup).
-
-~~~
-net stop mysql84
-net start mysql84
-~~~
-
-- Verify the version.
-
-~~~
-mysql --version
-~~~
-
-~~~
-mysql -u root -p -e "SELECT VERSION();"
-~~~
-
-
-### New installation: MySQL 8.4 (Windows)
-
-If MySQL is not installed on your machine yet, follow these steps to install MySQL 8.4.
-
-- Download MySQL Community Server (Windows) from the following page.
-
-	- [MySQL Community Server Downloads](https://downloads.mysql.com/archives/community/)
-	- In Select Version, choose 8.4.X, then choose Windows (x86, 64-bit).
-
-	![Select MySQL 8.4 version](img/xampp/mysql18.png)
-
-- Download MSI Installer (recommended).
-	![Select download package](img/xampp/mysql19.png)
-
-- Run the MSI file and follow the wizard.
-	- Welcome / License / Setup type / Install:
-
-		![Welcome](img/xampp/mysql30.png)
-		![License Agreement](img/xampp/mysql20.png)
-		![Choosing a Setup Type](img/xampp/mysql21.png)
-		![Ready to Install](img/xampp/mysql22.png)
-		![Installation Progress](img/xampp/mysql23.png)
 - After the MSI installation finishes, the configuration tool (MySQL Configurator) starts automatically.
 	- On **Welcome to the MySQL Server Configurator**, click **Next**.
 
@@ -152,12 +84,29 @@ If MySQL is not installed on your machine yet, follow these steps to install MyS
 
 	![Apply Configuration](img/xampp/mysql38.png)
 
-- Edit `my.ini` and enable local infile.
+- Edit `my.ini` (MySQL 8.4) and enable local infile.
 	- Path: `C:\ProgramData\MySQL\MySQL Server 8.4\my.ini`
 	- Add the following under `[mysqld]` (or to the end of the file):
 
 ~~~
 local-infile=1
+~~~
+
+- Restart MySQL (service name depends on your setup).
+
+~~~
+net stop MySQL84
+net start MySQL84
+~~~
+
+- Verify the version.
+
+~~~
+mysql --version
+~~~
+
+~~~
+mysql -u root -p -e "SELECT VERSION();"
 ~~~
 
 
