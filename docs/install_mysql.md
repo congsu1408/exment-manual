@@ -1,7 +1,6 @@
 # MySQL installation procedure
 These are the steps for using MySQL with Exment.  
-※Steps may differ depending on OS/version.
-
+※Various steps may differ depending on the OS, version, installation time, etc.
 
 ## MySQL settings (Windows)
 
