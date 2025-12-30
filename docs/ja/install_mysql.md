@@ -27,8 +27,7 @@ net stop mysql80
 ![MySQLインストール画面](img/xampp/mysql18.png)
 
 - 以下のいずれかをダウンロードします。
-	- MSI Installer (推奨)
-	- ZIP Archive (上級者向け)
+	- MSI Installer
 ![MySQLインストール画面](img/xampp/mysql19.png)
 
 - ダウンロードしたMSIファイルを実行し、ウィザードに従ってインストールします。

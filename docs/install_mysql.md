@@ -27,8 +27,7 @@ net stop mysql80
 ![Select MySQL 8.4 version](img/xampp/mysql18.png)
 
 - Download one of the following packages:
-	- MSI Installer (recommended)
-	- ZIP Archive (advanced)
+	- MSI Installer
 ![Select download package](img/xampp/mysql19.png)
 
 - Run the MSI file and follow the wizard.
