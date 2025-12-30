@@ -32,14 +32,19 @@ net stop mysql57
 
 - Run the MSI file and follow the wizard.
 	- On the Welcome screen, click Next to start.
+
 		![Welcome](img/xampp/mysql30.png)
 	- Accept the License Agreement and click Next.
+
 		![License Agreement](img/xampp/mysql20.png)
 	- For setup type, select **Complete** to install all features.
+
 		![Choosing a Setup Type](img/xampp/mysql21.png)
 	- Click Install to start installing.
+
 		![Ready to Install](img/xampp/mysql22.png)
 	- Wait for installation to complete, then click Finish.
+
 		![Installation Progress](img/xampp/mysql23.png)
 
 - Launch the installer. It will automatically detect the existing version and move to **MySQL Server Installations**.
@@ -49,14 +54,19 @@ net stop mysql57
 		- **Root password**: Enter the `root` password of the existing MySQL version.
 		- Click **Connect**.
 	- Review the existing version information, then click **Next**.
+
 		![Type and Networking](img/xampp/mysql24.png)
 	- On **Backup Data**, select **Run a mysqldump backup prior to upgrade** (recommended), then click **Next**.
+
 		![Backup Data](img/xampp/mysql25.png)
 	- On **Server File Permissions**, keep the default option and click **Next**.
+
 		![Server File Permissions](img/xampp/mysql26.png)
 	- Click **Execute** to apply the configuration.
+
 		![Apply Configuration](img/xampp/mysql27.png)
 	- When complete, click **Next** and **Finish**.
+
 		![Complete](img/xampp/mysql29.png)
 
 - Edit `my.ini` (MySQL 8.4) and enable local infile.
@@ -90,15 +100,18 @@ mysql -u root -p -e "SELECT VERSION();"
 If MySQL is not installed on your machine yet, follow these steps to install MySQL 8.4.
 
 - Download MySQL Community Server (Windows) from the following page.
+
 	- [MySQL Community Server Downloads](https://downloads.mysql.com/archives/community/)
 	- In Select Version, choose 8.4.X, then choose Windows (x86, 64-bit).
-![Select MySQL 8.4 version](img/xampp/mysql18.png)
+
+	![Select MySQL 8.4 version](img/xampp/mysql18.png)
 
 - Download MSI Installer (recommended).
-![Select download package](img/xampp/mysql19.png)
+	![Select download package](img/xampp/mysql19.png)
 
 - Run the MSI file and follow the wizard.
 	- Welcome / License / Setup type / Install:
+
 		![Welcome](img/xampp/mysql30.png)
 		![License Agreement](img/xampp/mysql20.png)
 		![Choosing a Setup Type](img/xampp/mysql21.png)
@@ -106,30 +119,38 @@ If MySQL is not installed on your machine yet, follow these steps to install MyS
 		![Installation Progress](img/xampp/mysql23.png)
 - After the MSI installation finishes, the configuration tool (MySQL Configurator) starts automatically.
 	- On **Welcome to the MySQL Server Configurator**, click **Next**.
+
 		![Welcome Configurator](img/xampp/mysql31.png)
 
 - **Data Directory**: keep the default and click **Next**.
+
 	![Data Directory](img/xampp/mysql32.png)
 
 - **Type and Networking**:
 	- **Config Type**: select `Development Computer`.
 	- **Connectivity**: check `TCP/IP` (default port is `3306`).
 	- Click **Next**.
+
 		![Type and Networking](img/xampp/mysql33.png)
 
 - **Accounts and Roles**: set the `root` password and click **Next**.
+
 	![Accounts and Roles](img/xampp/mysql34.png)
 
 - **Windows Service**: set a service name (example `MySQL84`) and click **Next**.
+
 	![Windows Service](img/xampp/mysql35.png)
 
 - **Server File Permissions**: keep the default and click **Next**.
+
 	![Server File Permissions](img/xampp/mysql36.png)
 
 - **Sample Databases**: skip, click **Next**.
+
 	![Sample Databases](img/xampp/mysql37.png)
 
 - **Apply Configuration**: click **Execute**, then **Next** and **Finish**.
+
 	![Apply Configuration](img/xampp/mysql38.png)
 
 - Edit `my.ini` and enable local infile.
@@ -144,16 +165,19 @@ local-infile=1
 ### Add environment variables
 
 - From Explorer, right-click This PC and click Properties.
-![MySQL environment variables](img/xampp/mysql_command1.png)
+
+	![MySQL environment variables](img/xampp/mysql_command1.png)
 
 - Click Advanced system settings.
-![MySQL environment variables](img/xampp/mysql_command2.png)
 
+	![MySQL environment variables](img/xampp/mysql_command2.png)
 - Click on Environment Variables.
-![MySQL environment variables](img/xampp/mysql_command3.png)
+
+	![MySQL environment variables](img/xampp/mysql_command3.png)
 
 - Click Path under User Environment Variables and click Edit.
-![MySQL environment variables](img/xampp/mysql_command4.png)
+
+	![MySQL environment variables](img/xampp/mysql_command4.png)
 
 - Remove old MySQL `bin` paths if they exist (example: `C:\Program Files\MySQL\MySQL Server 5.7\bin`).
 
