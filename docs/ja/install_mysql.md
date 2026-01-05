@@ -6,7 +6,7 @@ Exmentで、MySQLを使用するための手順です。
 ## MySQL設定(Windows)
 
 
-- 推奨：アップグレード前に[データベースバックアップ](https://dev.mysql.com/doc/refman/8.0/ja/mysqldump-sql-format.html)を取得してください。
+- 推奨：アップグレード前に[データベースバックアップ](https://dev.mysql.com/doc/refman/8.4/ja/mysqldump-sql-format.html)を取得してください。
 
 - (MySQLが起動している場合) 管理者としてコマンドプロンプトを起動し、MySQLを停止します。  
 スタートボタン右側にある「検索バー」へ「コマンドプロンプト」と入力します。  
@@ -128,7 +128,7 @@ LinuxでのMySQLのインストール手順です。
 ※必要に応じて、コマンドの頭にsudoを付与してください。  
 ※インストール先がCentOS8、RHEL8等の場合はyumではなくdnfコマンドをご利用ください。
 
-### MySQL5.7が存在する場合（MySQL5.7→MySQL8.0へアップデート）
+### MySQL5.7が存在する場合（MySQL5.7→MySQL8.4へアップデート）
 - MySQL5.7のパッケージを削除します。
 ~~~
 sudo killall mysqld; sudo killall mysqld_safe;
@@ -136,7 +136,7 @@ sudo rpm -e --nodeps mysql57-community-release
 sudo yum remove mysql mysql-server mysql-client mysql-common mysql-devel mysql-community-client-plugins -y
 ~~~
 
-- MySQL8.0をインストールし起動します。
+- MySQL8.4をインストールし起動します。
 <div style="margin-left: 2em;">※OSのバージョンによってはrpmが異なります。</div>
 <div style="margin-left: 2em;">例えば、AlmaLinux9.5の場合は、</div><br>
 
@@ -147,14 +147,14 @@ Linux localhost.localdomain 5.14.0-503.11.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC 
 <div style="margin-left: 2em;">だと、</div><br>
 
 ~~~
-sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.rpm
+sudo rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el9-2.noarch.rpm
 ~~~
 <div style="margin-left: 2em;">となります。</div><br>
 
 ~~~
 # CENTOS STREAMの場合
 
-rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el9-2.noarch.rpm
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 dnf clean packages
 dnf update -y
@@ -167,8 +167,8 @@ systemctl enable mysqld
 
 ~~~
 # CENTOS8の場合
-sudo rpm -ivh http://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
-sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el8-2.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 # こちらを実施時して、mysql-community-serverが存在するかを確認します
 sudo yum search mysql-community-server
@@ -197,8 +197,8 @@ local-infile=1
 sudo systemctl start mysqld
 ~~~
 
-### MySQL5.7が存在しない場合（MySQL8.0の新規インストール）
-- MySQL8.0をインストールし起動します。
+### MySQL5.7が存在しない場合（MySQL8.4の新規インストール）
+- MySQL8.4をインストールし起動します。
 <div style="margin-left: 2em;">※OSのバージョンによってはrpmが異なります。</div>
 <div style="margin-left: 2em;">例えば、AlmaLinux9.5の場合は、</div><br>
 
@@ -209,14 +209,14 @@ Linux localhost.localdomain 5.14.0-503.11.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC 
 <div style="margin-left: 2em;">だと、</div><br>
 
 ~~~
-sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.rpm
+sudo rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el9-2.noarch.rpm
 ~~~
 <div style="margin-left: 2em;">となります。</div><br>
 
 ~~~
 # CENTOSSTREAMの場合
 
-rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el9-2.noarch.rpm
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 dnf clean packages
 dnf update -y
@@ -230,8 +230,8 @@ systemctl enable mysqld
 
 ~~~
 # CENTOS 8の場合
-sudo rpm -ivh http://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
-sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo rpm -ivh https://dev.mysql.com/get/mysql84-community-release-el8-2.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 # こちらを実施時して、mysql-community-serverが存在するかを確認します
 sudo yum search mysql-community-server

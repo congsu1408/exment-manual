@@ -146,7 +146,7 @@ This is the installation procedure for MySQL on Linux.
 ※ Add sudo to the beginning of the command if necessary.   
 ※If the installation destination is CentOS8, RHEL8, etc., please use the dnf command instead of yum.
 
-### If MySQL5.7 exists (update from MySQL5.7 to MySQL8.0)
+### If MySQL5.7 exists (update from MySQL5.7 to MySQL8.4)
 - Delete the MySQL5.7 package.
 ~~~
 sudo killall mysqld; sudo killall mysqld_safe;
@@ -154,7 +154,7 @@ sudo rpm -e --nodeps mysql57-community-release
 sudo yum remove mysql mysql-server mysql-client mysql-common mysql-devel mysql-community-client-plugins -y
 ~~~
 
-- Install and start MySQL 8.0.
+- Install and start MySQL 8.4.
 <div style="margin-left: 2em;">Note: The rpm package depends on your OS version.</div>
 <div style="margin-left: 2em;">For example, in the case of AlmaLinux 9.5:</div><br>
 
@@ -166,7 +166,7 @@ Linux localhost.localdomain 5.14.0-503.11.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC 
 <div style="margin-left: 2em;">In this case,</div><br>
 
 ~~~
-sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.rpm
+sudo rpm -ivh https://repo.mysql.com/mysql84-community-release-el9-2.noarch.rpm
 ~~~
 
 <div style="margin-left: 2em;">would be the appropriate command.</div><br>
@@ -175,7 +175,7 @@ sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.r
 ```bash
 # For CENTOS STREAM
 
-rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+rpm -ivh https://repo.mysql.com/mysql84-community-release-el9-2.noarch.rpm
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 dnf clean packages
 dnf update -y
@@ -190,8 +190,8 @@ systemctl enable mysqld
 ```bash
 # For CENTOS 8
 
-sudo rpm -ivh http://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
-sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo rpm -ivh https://repo.mysql.com/mysql84-community-release-el8-2.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 # Check if mysql-community-server exists
 sudo yum search mysql-community-server
@@ -221,8 +221,8 @@ local-infile=1
 sudo systemctl start mysqld
 ~~~
 
-### If MySQL5.7 does not exist (new installation of MySQL8.0)
-- Install and start MySQL8.0.
+### If MySQL5.7 does not exist (new installation of MySQL8.4)
+- Install and start MySQL8.4.
 
 <div style="margin-left: 2em;">Note: The rpm package depends on your OS version.</div>
 <div style="margin-left: 2em;">For example, in the case of AlmaLinux 9.5:</div><br>
@@ -235,7 +235,7 @@ Linux localhost.localdomain 5.14.0-503.11.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC 
 <div style="margin-left: 2em;">In this case,</div><br>
 
 ~~~
-sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.rpm
+sudo rpm -ivh https://repo.mysql.com/mysql84-community-release-el9-2.noarch.rpm
 ~~~
 
 <div style="margin-left: 2em;">would be the appropriate command.</div><br>
@@ -243,7 +243,7 @@ sudo rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.r
 ```bash
 # For CENTOSSTREAM
 
-rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+rpm -ivh https://repo.mysql.com/mysql84-community-release-el9-2.noarch.rpm
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 dnf clean packages
 dnf update -y
@@ -257,8 +257,8 @@ systemctl enable mysqld
 ```bash
 # For CENTOS 8
 
-sudo rpm -ivh http://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
-sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo rpm -ivh https://repo.mysql.com/mysql84-community-release-el8-2.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 # Check if mysql-community-server exists
 sudo yum search mysql-community-server

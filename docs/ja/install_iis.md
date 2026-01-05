@@ -7,7 +7,7 @@ Webサーバーのインストールをはじめとして、完全に新規に�
 - Windows Server 2019 Standard 日本語版
 - IIS 10
 - PHP 8.2.X
-- MySQL 8.0.35
+- MySQL 8.4.X
 
 検証用途で Windows 10 を利用される場合については適宜注記しています。
 
@@ -115,21 +115,21 @@ PHP をダウンロードし、インストールします
 
 ### MySQL のインストール
 Exment で利用する MySQL をインストールして初期構成します  
-ここでは MySQL 8.0.35 をインストールしています
+ここでは MySQL 8.4.X をインストールしています
 
 1. [MySQL Community Downloads](https://dev.mysql.com/downloads/mysql/) のページにアクセスします
 2. \[General Availability (GA) Releases\] をクリックします  
    ![MySQL Community Downloads](img/iis/iis_mysql01.png)
-3. \[Select Version\] で "8.0.35" を選択し、\[Select Operating System\] で "Microsoft Windows" を選択し、\[Select OS Version\] で "Windows (x86, 64bit)" を選択します
+3. \[Select Version\] で "8.4.X" を選択し、\[Select Operating System\] で "Microsoft Windows" を選択し、\[Select OS Version\] で "Windows (x86, 64bit)" を選択します
    ![ダウンロードの選択](img/iis/iis_mysql02.png)  
    > Windows 10 環境で 32 ビット版 Windows を利用している場合は、\[Select OS Version\] で "Windows (x86, 32bit)" を選択してください
-4. \[Other Downloads\] の "ZIP Archive" の欄の \[Download\] ボタンをクリックし、mysql-8.0.35-winx64.zip ファイルをダウンロードします
+4. \[Other Downloads\] の "ZIP Archive" の欄の \[Download\] ボタンをクリックし、mysql-8.4.xx-winx64.zip ファイルをダウンロードします
    ![ダウンロード](img/iis/iis_mysql03.png)
 5. \[Login Now or Sign Up for a free account.\] が表示されたら、一番下の \[No thanks, just start my download.\] をクリックします。ダウンロードが開始されます
 6. ダウンロードした ZIP ファイルを右クリックしてプロパティを表示し、\[全般\] タブの\[セキュリティ\] にある「ブロックの解除」にチェックを入れて \[OK\] をクリックします  
    ![ブロックの解除](img/iis/iis_mysql04.png)
 7. ZIP ファイルの内容を適当なフォルダー（例 C:\MySQL）に展開します
-8. 管理者コマンドプロンプトを起動し、ZIP ファイルを展開したフォルダー内の mysql-8.0.35-winx64\bin フォルダーに移動します
+8. 管理者コマンドプロンプトを起動し、ZIP ファイルを展開したフォルダー内の mysql-8.4.xx-winx64\bin フォルダーに移動します
    ![カレントの移動](img/iis/iis_mysql05.png)
 9.  以下のコマンドを実行して MySQL の初期化を行います
     ```
@@ -157,7 +157,7 @@ Exment で利用する MySQL をインストールして初期構成します
     ```
     ![サービスの開始](img/iis/iis_mysql09.png)
 14. MySQL を利用するための管理者 (root) パスワードの初期値を確認します  
-    MySQL を展開したフォルダーが C:\MySQL の場合、C:\MySQL\mysql-8.0.35-winx64\data に拡張子が .err のファイルがありますので、これをメモ帳などのテキスト エディタで開きます  
+   MySQL を展開したフォルダーが C:\MySQL の場合、C:\MySQL\mysql-8.4.xx-winx64\data に拡張子が .err のファイルがありますので、これをメモ帳などのテキスト エディタで開きます  
     > 下図の場合は ExmentServer2.err というファイル名です  
     ![err ファイル](img/iis/iis_mysql10.png)
 15. ファイルの先頭近くに "\[Note\] A temporary password is generated for root@localhost:" と書かれた行があります (下図の赤下線)。この後に書かれている文字列 (下図では 1fyr*IXeC2%w) が初期パスワードです。このパスワードを控えておいてください
