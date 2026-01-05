@@ -207,7 +207,7 @@
 1. General
      - Changed the framework used from Laravel9 to Laravel10
      - Changed the minimum PHP version from PHP8.0 to 8.2 or higher (recommended: PHP8.2)
-    - Change the minimum version of MySQL from MySQL5.7 to 8.0 or higher (recommended: MySQL8.4)
+     - Change the minimum version of MySQL from MySQL5.7 to 8.0 or higher (recommended: MySQL8.0)
 
 
 ## v5.0.13 (2024/10/11)
