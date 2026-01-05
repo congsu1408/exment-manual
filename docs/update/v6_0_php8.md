@@ -2,11 +2,11 @@
 In Exment v6.0.0, the supported version of PHP will change.   
 Before v6.0.0, we used PHP8.0, but as the security support period for PHP8.0 ended in November 2023, we will change to PHP8.2 or higher.   
 Additionally, in order to minimize future PHP/Laravel version changes as much as possible, we have decided to change the Laravel version to Laravel 10, which is currently the latest version.   
-MySQL has also been changed to MySQL 8.4, which is the current LTS version.
+MySQL has also been changed to MySQL 8.0, which is the latest version at this stage.
 
-## How to upgrade MySQL version to MySQL8.4
+## How to upgrade MySQL version MySQL8.0
 
-The previous MySQL version was 5.7 at most, but from now on it will be MySQL 8.4. As a result, all users will need to update to MySQL 8.4.   
+The previous MySQL version was 5.7 at most, but from now on it will be MySQL 8.0. As a result, all users will need to update to MySQL 8.0.   
 For the update procedure, please check [here](/install_mysql).
 
 ## MariaDB version upgrade method MariaDB 10.4
