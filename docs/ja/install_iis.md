@@ -157,7 +157,7 @@ Exment で利用する MySQL をインストールして初期構成します
     ```
     ![サービスの開始](img/iis/iis_mysql09.png)
 14. MySQL を利用するための管理者 (root) パスワードの初期値を確認します  
-   MySQL を展開したフォルダーが C:\MySQL の場合、C:\MySQL\mysql-8.4.xx-winx64\data に拡張子が .err のファイルがありますので、これをメモ帳などのテキスト エディタで開きます  
+    MySQL を展開したフォルダーが C:\MySQL の場合、C:\MySQL\mysql-8.4.xx-winx64\data に拡張子が .err のファイルがありますので、これをメモ帳などのテキスト エディタで開きます  
     > 下図の場合は ExmentServer2.err というファイル名です  
     ![err ファイル](img/iis/iis_mysql10.png)
 15. ファイルの先頭近くに "\[Note\] A temporary password is generated for root@localhost:" と書かれた行があります (下図の赤下線)。この後に書かれている文字列 (下図では 1fyr*IXeC2%w) が初期パスワードです。このパスワードを控えておいてください

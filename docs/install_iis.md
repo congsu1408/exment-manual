@@ -152,7 +152,7 @@ Here we are installing MySQL 8.4.X
     ```
     ![Starting the service](img/iis/iis_mysql09.png)
 14. Check the initial value of the administrator (root) password for using MySQL  
-   If the folder where you expanded MySQL is C:\MySQL, there will be a file with the extension .err in C:\MySQL\mysql-8.4.xx-winx64\data, so open it with a text editor such as Notepad.   
+    If the folder where you expanded MySQL is C:\MySQL, there will be a file with the extension .err in C:\MySQL\mysql-8.4.xx-winx64\data, so open it with a text editor such as Notepad.   
     > In the case below, the file name is ExmentServer2.err  
     ![err file](img/iis/iis_mysql10.png)
 15. Near the top of the file there is a line that says "\[Note\] A temporary password is generated for root@localhost:" (underlined in red in the image below). The character string written after this (1fyr*IXeC2%w in the figure below) is the initial password. Please note this password
